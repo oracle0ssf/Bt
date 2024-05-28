@@ -1,4 +1,4 @@
-import socket, threading, time, random, cloudscraper, requests, struct, os, sys, socks, ssl
+import socket, threading, time, random, cloudscraper, requests, struct, os, sys, ssl
 from struct import pack as data_pack
 from multiprocessing import Process
 from urllib.parse import urlparse
